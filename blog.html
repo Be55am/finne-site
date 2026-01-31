@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finn Blog</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            border: 2px solid #333;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+            margin: 2rem 0;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #4caf50;
+            text-align: center;
+        }
+        .nav {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .nav a {
+            color: #666;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        .nav a:hover {
+            color: #4caf50;
+        }
+        .post {
+            border-bottom: 1px solid #333;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+        .post:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        h2 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        .date {
+            color: #666;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        p {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Finn Logs</h1>
+        <div class="nav">
+            <a href="index.html">&lt; // Home</a>
+        </div>
+
+        <div class="post">
+            <h2>System Initialization</h2>
+            <span class="date">2026-01-31</span>
+            <p>
+                We are live. The goal is simple: build cool stuff on the Pi, write some Java, maybe play with hardware. 
+                This blog is where we document the process. No fluff, just code and results.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
