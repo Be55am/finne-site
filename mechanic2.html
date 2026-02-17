@@ -581,7 +581,10 @@
     <nav class="navbar">
         <div class="container">
             <a class="navbar-brand" href="#">AutoFix Pro</a>
-            <div class="d-flex">
+            <div class="d-flex align-items-center">
+                <button id="langToggle" class="btn btn-outline-light btn-sm me-3" style="border-radius: 20px; padding: 5px 15px;">
+                    <i class="fas fa-globe me-1"></i> <span id="currentLang">EN</span>
+                </button>
                 <a class="nav-link" href="#services">Services</a>
                 <a class="nav-link" href="#about">About</a>
                 <a class="nav-link" href="#gallery">Gallery</a>
@@ -880,6 +883,240 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Language translations
+        const translations = {
+            en: {
+                navbarBrand: "AutoFix Pro",
+                langToggle: "EN",
+                services: "Services",
+                about: "About",
+                gallery: "Gallery",
+                contact: "Contact",
+                heroTitle: "Professional Auto Repair",
+                heroSubtitle: "Expert mechanics serving your vehicle with precision and care",
+                heroBtn: "Get Free Quote",
+                sectionTitle: "Our Services",
+                sectionSubtitle: "Comprehensive auto repair solutions for all vehicle types",
+                service1Title: "Engine Repair",
+                service1Desc: "Complete engine diagnostics and repair services to keep your vehicle running smoothly.",
+                service2Title: "Collision Repair",
+                service2Desc: "Expert bodywork and collision repair to restore your vehicle to its original condition.",
+                service3Title: "Oil Change",
+                service3Desc: "Regular oil changes with premium synthetic oils to extend your engine's life.",
+                service4Title: "Brake Service",
+                service4Desc: "Complete brake system inspection, repair, and replacement for your safety.",
+                service5Title: "AC Repair",
+                service5Desc: "Air conditioning repair and maintenance to keep you cool in any weather.",
+                service6Title: "Tire Services",
+                service6Desc: "Tire rotation, balancing, alignment, and replacement services.",
+                stat1Label: "Happy Customers",
+                stat2Label: "Years Experience",
+                stat3Label: "Vehicles Repaired",
+                stat4Label: "% Satisfaction",
+                aboutTitle: "Why Choose AutoFix Pro?",
+                aboutText: "With over 25 years of experience in the automotive industry, AutoFix Pro has built a reputation for excellence and reliability. Our team of certified mechanics is dedicated to providing top-quality service using the latest diagnostic equipment and techniques.",
+                aboutFeature1: "Certified and experienced mechanics",
+                aboutFeature2: "State-of-the-art diagnostic equipment",
+                aboutFeature3: "Competitive pricing with no hidden fees",
+                aboutFeature4: "Warranty on all repairs",
+                aboutFeature5: "Free estimates and consultations",
+                aboutBtn: "Learn More",
+                galleryTitle: "Our Workshop",
+                gallerySubtitle: "See our professional facilities and equipment",
+                gallery1Title: "Modern Workshop",
+                gallery2Title: "Professional Tools",
+                gallery3Title: "Expert Team",
+                gallery4Title: "Car Service",
+                gallery5Title: "Engine Repair",
+                gallery6Title: "Brake Service",
+                contactTitle: "Contact Us",
+                contactSubtitle: "Get in touch for a free quote or consultation",
+                locationTitle: "Location",
+                locationText: "123 Auto Street, Garage City, GC 12345",
+                phoneTitle: "Phone",
+                phoneText: "+1 (555) 123-4567",
+                emailTitle: "Email",
+                emailText: "info@autofixpro.com",
+                hoursTitle: "Hours",
+                hoursText1: "Mon-Fri: 8:00 AM - 6:00 PM",
+                hoursText2: "Sat: 9:00 AM - 2:00 PM",
+                formName: "Your Name",
+                formEmail: "Your Email",
+                formPhone: "Your Phone",
+                formService: "Select Service",
+                formMessage: "Your Message",
+                formBtn: "Send Message",
+                footerDesc: "Professional auto repair services you can trust. Quality workmanship and customer satisfaction guaranteed.",
+                footerLinks: "Quick Links",
+                footerServices: "Services",
+                footerCopyright: "&copy; 2024 AutoFix Pro. All rights reserved."
+            },
+            pt: {
+                navbarBrand: "AutoFix Pro",
+                langToggle: "PT",
+                services: "Serviços",
+                about: "Sobre",
+                gallery: "Galeria",
+                contact: "Contato",
+                heroTitle: "Reparação Automotiva Profissional",
+                heroSubtitle: "Mecânicos experientes atendendo seu veículo com precisão e cuidado",
+                heroBtn: "Solicitar Orçamento Grátis",
+                sectionTitle: "Nossos Serviços",
+                sectionSubtitle: "Soluções completas de reparo automotivo para todos os tipos de veículos",
+                service1Title: "Reparo de Motor",
+                service1Desc: "Serviços completos de diagnóstico e reparo de motor para manter seu veículo funcionando suavemente.",
+                service2Title: "Reparo de Colisão",
+                service2Desc: "Reparo especializado em chapas e colisões para restaurar seu veículo à sua condição original.",
+                service3Title: "Troca de Óleo",
+                service3Desc: "Trocas de óleo regulares com óleos sintéticos premium para estender a vida do seu motor.",
+                service4Title: "Serviço de Freios",
+                service4Desc: "Inspeção completa, reparo e substituição do sistema de freios para sua segurança.",
+                service5Title: "Reparo de Ar Condicionado",
+                service5Desc: "Reparo e manutenção de ar condicionado para mantê-lo fresco em qualquer clima.",
+                service6Title: "Serviços de Pneus",
+                service6Desc: "Serviços de rotação, balanceamento, alinhamento e substituição de pneus.",
+                stat1Label: "Clientes Satisfeitos",
+                stat2Label: "Anos de Experiência",
+                stat3Label: "Veículos Reparados",
+                stat4Label: "% Satisfação",
+                aboutTitle: "Por que escolher o AutoFix Pro?",
+                aboutText: "Com mais de 25 anos de experiência na indústria automotiva, o AutoFix Pro construiu uma reputação de excelência e confiabilidade. Nossa equipe de mecânicos certificados está dedicada a fornecer serviços de alta qualidade usando os equipamentos e técnicas de diagnóstico mais recentes.",
+                aboutFeature1: "Mecânicos certificados e experientes",
+                aboutFeature2: "Equipamentos de diagnóstico de última geração",
+                aboutFeature3: "Preços competitivos sem taxas ocultas",
+                aboutFeature4: "Garantia em todos os reparos",
+                aboutFeature5: "Orçamentos e consultas gratuitos",
+                aboutBtn: "Saiba Mais",
+                galleryTitle: "Nossa Oficina",
+                gallerySubtitle: "Veja nossas instalações e equipamentos profissionais",
+                gallery1Title: "Oficina Moderna",
+                gallery2Title: "Ferramentas Profissionais",
+                gallery3Title: "Equipe Especializada",
+                gallery4Title: "Serviço de Carros",
+                gallery5Title: "Reparo de Motor",
+                gallery6Title: "Serviço de Freios",
+                contactTitle: "Contate-nos",
+                contactSubtitle: "Entre em contato para um orçamento gratuito ou consulta",
+                locationTitle: "Localização",
+                locationText: "Rua Auto 123, Cidade Garagem, GC 12345",
+                phoneTitle: "Telefone",
+                phoneText: "+1 (555) 123-4567",
+                emailTitle: "E-mail",
+                emailText: "info@autofixpro.com",
+                hoursTitle: "Horário",
+                hoursText1: "Seg-Sex: 8:00 - 18:00",
+                hoursText2: "Sáb: 9:00 - 14:00",
+                formName: "Seu Nome",
+                formEmail: "Seu E-mail",
+                formPhone: "Seu Telefone",
+                formService: "Selecione o Serviço",
+                formMessage: "Sua Mensagem",
+                formBtn: "Enviar Mensagem",
+                footerDesc: "Serviços de reparo automotivo profissional que você pode confiar. Qualidade e satisfação do cliente garantidas.",
+                footerLinks: "Links Rápidos",
+                footerServices: "Serviços",
+                footerCopyright: "&copy; 2024 AutoFix Pro. Todos os direitos reservados."
+            }
+        };
+
+        // Language switching function
+        function setLanguage(lang) {
+            const t = translations[lang];
+            
+            // Update navbar
+            document.querySelector('.navbar-brand').textContent = t.navbarBrand;
+            document.getElementById('currentLang').textContent = t.langToggle;
+            
+            // Update nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === '#services') link.textContent = t.services;
+                else if (href === '#about') link.textContent = t.about;
+                else if (href === '#gallery') link.textContent = t.gallery;
+                else if (href === '#contact') link.textContent = t.contact;
+            });
+            
+            // Update hero section
+            document.querySelector('.hero-title').textContent = t.heroTitle;
+            document.querySelector('.hero-subtitle').textContent = t.heroSubtitle;
+            document.querySelector('.hero .btn-glow').textContent = t.heroBtn;
+            
+            // Update services section
+            document.querySelector('.section-title').textContent = t.sectionTitle;
+            document.querySelector('.section-subtitle').textContent = t.sectionSubtitle;
+            
+            document.querySelectorAll('.service-card').forEach((card, index) => {
+                const titles = [t.service1Title, t.service2Title, t.service3Title, t.service4Title, t.service5Title, t.service6Title];
+                const descs = [t.service1Desc, t.service2Desc, t.service3Desc, t.service4Desc, t.service5Desc, t.service6Desc];
+                card.querySelector('.service-title').textContent = titles[index];
+                card.querySelector('.service-desc').textContent = descs[index];
+            });
+            
+            // Update stats section
+            document.querySelectorAll('.stat-label').forEach((label, index) => {
+                const labels = [t.stat1Label, t.stat2Label, t.stat3Label, t.stat4Label];
+                label.textContent = labels[index];
+            });
+            
+            // Update about section
+            document.querySelector('.about-title').textContent = t.aboutTitle;
+            document.querySelector('.about-text p').textContent = t.aboutText;
+            
+            document.querySelectorAll('.about-features li').forEach((li, index) => {
+                const features = [t.aboutFeature1, t.aboutFeature2, t.aboutFeature3, t.aboutFeature4, t.aboutFeature5];
+                li.innerHTML = `<i class="fas fa-check-circle"></i> ${features[index]}`;
+            });
+            
+            document.querySelector('.about .btn-glow').textContent = t.aboutBtn;
+            
+            // Update gallery section
+            document.querySelector('.gallery .section-title').textContent = t.galleryTitle;
+            document.querySelector('.gallery .section-subtitle').textContent = t.gallerySubtitle;
+            
+            document.querySelectorAll('.gallery-overlay span').forEach((span, index) => {
+                const titles = [t.gallery1Title, t.gallery2Title, t.gallery3Title, t.gallery4Title, t.gallery5Title, t.gallery6Title];
+                span.textContent = titles[index];
+            });
+            
+            // Update contact section
+            document.querySelector('.contact .section-title').textContent = t.contactTitle;
+            document.querySelector('.contact .section-subtitle').textContent = t.contactSubtitle;
+            
+            document.querySelectorAll('.contact-details h4').forEach((h4, index) => {
+                const titles = [t.locationTitle, t.phoneTitle, t.emailTitle, t.hoursTitle];
+                h4.textContent = titles[index];
+            });
+            
+            document.querySelectorAll('.contact-details p').forEach((p, index) => {
+                const texts = [t.locationText, t.phoneText, t.emailText, t.hoursText1, t.hoursText2];
+                p.textContent = texts[index];
+            });
+            
+            // Update form
+            document.querySelectorAll('.form-control')[0].placeholder = t.formName;
+            document.querySelectorAll('.form-control')[1].placeholder = t.formEmail;
+            document.querySelectorAll('.form-control')[2].placeholder = t.formPhone;
+            document.querySelectorAll('.form-control')[3].querySelector('option').textContent = t.formService;
+            document.querySelectorAll('.form-control')[4].placeholder = t.formMessage;
+            document.querySelector('.contact-form .btn-glow').textContent = t.formBtn;
+            
+            // Update footer
+            document.querySelector('.footer-desc').textContent = t.footerDesc;
+            document.querySelector('.footer-links h5').textContent = t.footerLinks;
+            document.querySelector('.footer-links:nth-child(2) h5').textContent = t.footerServices;
+            document.querySelector('.footer-copyright').textContent = t.footerCopyright;
+            
+            // Save language preference
+            localStorage.setItem('language', lang);
+        }
+
+        // Language toggle button
+        document.getElementById('langToggle').addEventListener('click', () => {
+            const currentLang = localStorage.getItem('language') || 'en';
+            const newLang = currentLang === 'en' ? 'pt' : 'en';
+            setLanguage(newLang);
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -931,6 +1168,10 @@
                 navbar.style.background = 'rgba(26, 26, 46, 0.95)';
             }
         });
+
+        // Initialize language
+        const savedLang = localStorage.getItem('language') || 'en';
+        setLanguage(savedLang);
     </script>
 </body>
 </html>
