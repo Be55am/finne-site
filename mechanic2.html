@@ -818,11 +818,11 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form>
-                        <input type="text" class="form-control" placeholder="Your Name" required>
-                        <input type="email" class="form-control" placeholder="Your Email" required>
-                        <input type="tel" class="form-control" placeholder="Your Phone">
-                        <select class="form-control">
+                    <form action="https://formspree.io/f/xojnlqzl" method="POST">
+                        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                        <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                        <input type="tel" name="phone" class="form-control" placeholder="Your Phone">
+                        <select name="service" class="form-control">
                             <option value="">Select Service</option>
                             <option value="engine">Engine Repair</option>
                             <option value="collision">Collision Repair</option>
@@ -831,7 +831,7 @@
                             <option value="ac">AC Repair</option>
                             <option value="tires">Tire Services</option>
                         </select>
-                        <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        <textarea name="message" class="form-control" rows="5" placeholder="Your Message" required></textarea>
                         <button type="submit" class="btn btn-glow w-100">Send Message</button>
                     </form>
                 </div>
