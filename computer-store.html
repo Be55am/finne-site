@@ -29,7 +29,9 @@
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .product-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: transform 0.3s; }
         .product-card:hover { transform: translateY(-10px); }
-        .product-image { height: 250px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem; }
+        .product-image { height: 250px; overflow: hidden; background: #f8f9fa; }
+        .product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .product-card:hover .product-image img { transform: scale(1.05); }
         .product-info { padding: 1.5rem; }
         .product-title { font-size: 1.3rem; margin-bottom: 0.5rem; color: #333; }
         .product-desc { color: #666; margin-bottom: 1rem; font-size: 0.95rem; }
@@ -100,7 +102,7 @@
             <div class="product-grid">
                 <!-- Product 1: Gaming Laptop -->
                 <div class="product-card">
-                    <div class="product-image">🎮</div>
+                    <div class="product-image"><img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400&h=300&fit=crop" alt="Gaming Laptop"></div>
                     <div class="product-info">
                         <h3 class="product-title">Gaming Pro X15</h3>
                         <p class="product-desc">RTX 4070, Intel i9-13900H, 32GB RAM, 1TB SSD, 165Hz Display</p>
@@ -111,7 +113,7 @@
 
                 <!-- Product 2: MacBook Pro -->
                 <div class="product-card">
-                    <div class="product-image">💻</div>
+                    <div class="product-image"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=300&fit=crop" alt="MacBook Pro"></div>
                     <div class="product-info">
                         <h3 class="product-title">MacBook Pro 16"</h3>
                         <p class="product-desc">M3 Max chip, 48GB RAM, 2TB SSD, Space Black</p>
@@ -122,7 +124,7 @@
 
                 <!-- Product 3: Desktop PC -->
                 <div class="product-card">
-                    <div class="product-image">🖥️</div>
+                    <div class="product-image"><img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&h=300&fit=crop" alt="Desktop PC"></div>
                     <div class="product-info">
                         <h3 class="product-title">Workstation Tower Pro</h3>
                         <p class="product-desc">Ryzen 9 7950X, RTX 4080, 64GB DDR5, 2TB NVMe SSD</p>
@@ -133,7 +135,7 @@
 
                 <!-- Product 4: Ultrabook -->
                 <div class="product-card">
-                    <div class="product-image">📱</div>
+                    <div class="product-image"><img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop" alt="Ultrabook"></div>
                     <div class="product-info">
                         <h3 class="product-title">SlimBook Air 14"</h3>
                         <p class="product-desc">Intel i7-1360P, 16GB RAM, 512GB SSD, Ultra-lightweight</p>
@@ -144,7 +146,7 @@
 
                 <!-- Product 5: Monitor -->
                 <div class="product-card">
-                    <div class="product-image">🖥️</div>
+                    <div class="product-image"><img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop" alt="Monitor"></div>
                     <div class="product-info">
                         <h3 class="product-title">4K UltraWide Monitor</h3>
                         <p class="product-desc">34" Curved, 165Hz, HDR600, USB-C Hub</p>
@@ -155,7 +157,7 @@
 
                 <!-- Product 6: Tablet -->
                 <div class="product-card">
-                    <div class="product-image">📱</div>
+                    <div class="product-image"><img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=300&fit=crop" alt="Tablet"></div>
                     <div class="product-info">
                         <h3 class="product-title">ProTab Ultra 12"</h3>
                         <p class="product-desc">Snapdragon 8 Gen 2, 16GB RAM, 512GB Storage, S-Pen included</p>
